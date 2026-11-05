@@ -1,13 +1,14 @@
 import searchImages from "./api";
-
 import SearchBar from "./components/SearchBar";
 
-searchImages();
-
 function App() {
+  async function handleSubmit(term) {
+    const result = await searchImages(term);
+  }
+
   return (
     <div>
-      <SearchBar />
+      <SearchBar onSubmit={handleSubmit} />
     </div>
   );
 }
